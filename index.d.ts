@@ -75,6 +75,13 @@ declare namespace wp {
        */
       constructor( options: object )
 
+      [ key: string ]: any
+
+      /**
+       * The shortcode name.
+       */
+      type: string
+
       /**
        * The content.
        */
@@ -268,7 +275,7 @@ declare namespace wp {
        * @param type   The view type.
        * @param extend An object to extend wp.mce.View.prototype with.
        */
-      function register( type: string, extend: object ): void
+      function register<T extends Partial<View>>( type: string, extend: T ): void
 
       /**
        * Unregisters a view type.
